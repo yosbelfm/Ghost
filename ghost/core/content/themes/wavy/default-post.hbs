@@ -1,0 +1,192 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{#post}}
+
+<!-- start: #single -->
+<main id="single" class="main grid-container {{{block "main-class" }}}">
+
+    {{{block "top-image" }}}
+
+    <!-- start: .center -->
+    <div class="center content">
+
+        <!-- start: .content -->
+        <div class="left-content grid-70 np-mobile">
+
+            <article class="main-article post-access-{{visibility}} primary-tag-{{primary_tag.slug}} {{post_class}}">
+
+                <header>
+                    {{{block "bottom-image" }}}
+                    <div class="clear"></div>
+                </header>
+
+                <section class="post-content">
+                    {{#if access}}
+                        <div class="text">{{content}}</div>        
+                        <div class="bottom-tags textcenter">       
+                            {{#if tags}}                
+                                <div class="tags-list">
+                                    <p><strong>{{t "Tagged in:"}}</strong></p> 
+                                    {{tags separator=", "}}
+                                </div>  
+                            {{/if}} 
+                            <p class="last-update"><span class="dot small"></span> <strong>{{t "Last Update:"}}</strong> {{date updated_at format="MMMM DD, YYYY"}}</p>                          
+                        </div>                         
+                    {{else}}
+                        {{> content-cta}}
+                    {{/if}}
+                </section>
+
+            </article>
+
+            <div class="clear"></div>
+
+            <section class="siblings" id="epcl-other-stories">
+                {{#prev_post}}
+                    <a href="{{url}}" class="epcl-button gradient-button wave-button">
+                        {{t "Previous Article"}}
+                    </a>
+                {{/prev_post}}
+                {{#next_post}}
+                    <a href="{{url}}" class="epcl-button gradient-button wave-button alignright">
+                        {{t "Next Article"}}
+                    </a>
+                {{/next_post}}
+                <div class="clear"></div>                              
+            </section>
+            
+            {{> subscribe-form}}
+
+            {{#primary_author}}
+                <!-- start: .author -->
+                <section id="author" class="author medium-section np-bottom {{#if profile_image}} with-avatar{{else}} no-avatar{{/if}} {{#is "post"}}single-author{{/is}}">
+                    <h3 class="title medium bordered absolute-border gray-border"><span>{{t "About the Author"}}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h3>
+                    <div class="epcl-flex">
+                        {{#if profile_image}}
+                            <div class="left">
+                                <a href="{{url}}" class="author-avatar translate-effect epcl-loader">
+                                    <span class="author-image cover lazy" data-src="{{profile_image}}"></span>
+                                </a>  
+                            </div>
+                        {{/if}}
+                        <div class="right">
+                            <h4 class="title medium author-name underline-effect">
+                                <a href="{{url}}">
+                                    {{name}}                                    
+                                </a>
+                                {{#if location}}                                
+                                    <span class="location">
+                                        {{location}}
+                                    </span>
+                                {{/if}}
+                            </h4>
+                            <div class="info">
+                                <p>{{bio}}</p>      
+                            </div> 
+                            <div class="social">                        
+                                {{#if twitter}}
+                                    <a href="{{twitter_url}}" class="twitter tooltip" data-title="{{t 'Follow me on Twitter' }}" target="_blank">
+                                        <svg class="icon"><use xlink:href="#twitter-icon"></use></svg>{{t "Twitter"}}
+                                    </a>
+                                {{/if}}
+                                {{#if facebook}}
+                                    <a href="{{facebook_url}}" class="facebook tooltip" data-title="{{t 'Follow me on Facebook' }}" target="_blank">
+                                        <svg class="icon"><use xlink:href="#facebook-icon"></use></svg>{{t "Facebook"}}
+                                    </a>
+                                {{/if}}
+                                {{#if website}}
+                                    <a href="{{website}}" class="website tooltip" data-title="{{t 'Website' }}: {{website}}" target="_blank">
+                                        <svg class="icon main-color"><use xlink:href="#website-icon"></use></svg>{{t "Website"}}
+                                    </a>
+                                {{/if}}
+                            </div> 
+                            <a href="{{url}}" class="epcl-button medium gradient-button icon wave-button">
+                                {{!-- <svg><use xlink:href="#double-arrow-icon"></use></svg> --}}
+                                {{t "View All Posts"}}
+                            </a>                        
+                        </div>
+
+                    </div>
+
+                </section>
+                <!-- end: .author -->
+            {{/primary_author}}  
+               
+            {{#get "posts" filter="id:-{{id}}+primary_tag:{{primary_tag.slug}}" limit="4" as |related-articles| }}
+                {{#if related-articles}}
+                    <section class="related medium-section np-bottom" id="epcl-related-stories">
+                        <h3 class="title medium bordered absolute-border gray-border"><span>{{t "Related Articles"}}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h3>
+                        <div class="epcl-row epcl-flex">                        
+                            {{#foreach related-articles visibility="all" columns="2"}}
+                                <article class="item epcl-flex ctag-{{primary_tag.slug}} {{post_class}}">
+                                    {{#if feature_image}}
+                                        <a href="{{url}}" class="thumb epcl-loader translate-effect">
+                                            <span class="fullimage cover lazy" data-src="{{img_url feature_image size="medium"}}"></span>
+                                        </a>
+                                    {{/if}}
+                                    <div class="info">
+                                        <h4 class="title usmall underline-effect"><a href="{{url}}">{{title}}</a></h4>
+                                        <div class="meta small">
+                                            <time datetime="{{date format='YYYY-MM-DD'}}"><span class="dot small"></span>{{date format="MMMM DD, YYYY"}}</time>
+                                        </div>
+                                    </div>
+                                </article>
+                                {{#if @rowEnd}}
+                                    <div class="clear"></div>
+                                {{/if}}
+                            {{/foreach}}                    
+                        </div>
+                        <div class="clear"></div>
+    
+                    </section>
+                {{/if}}
+            {{/get}}
+            <div class="clear"></div>
+            
+            {{#if access}}
+                <!-- start: #comments -->
+                <div id="comments" class="medium-section">
+                    {{!-- <h3 class="title medium bordered medium-border gray-border"><span>{{t "Comments"}}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h3> --}}
+                    {{#match @custom.comments_engine "Native"}}
+                        {{comments title="" count=false mode="light"}}
+                    {{else}}
+                        {{#if @custom.disqus_shortname}}
+                            <div id="disqus_thread"></div>
+                            <script>
+                                /**
+                                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                                    */
+                                var disqus_shortname = theme_config.disqus_shortname; // required: replace example with your forum shortname
+                                var disqus_config = function () {
+                                    this.page.url = '{{@site.url}}{{url}}';  // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = '{{comment_id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                };
+
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                        {{/if}}
+                    {{/match}}                    
+                </div>
+                <!-- end: #comments -->    
+            {{/if}}    
+
+        </div>
+        <!-- end: .content -->
+
+        {{{block "sidebar" }}}        
+
+        <div class="clear"></div>
+
+    </div>
+    <!-- end: .center -->
+
+    {{>svg-waves}}
+
+</main>
+<!-- end: #single -->
+
+{{/post}}

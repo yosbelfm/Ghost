@@ -1,0 +1,290 @@
+/* @group Author and Tags page */
+
+.archive #author div.avatar{ margin-top: 10px; }
+#archives{
+    .tag-description{
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        min-height: 150px;
+        margin: $section-padding auto 0;
+        position: relative;
+        z-index: 1;
+        padding: 40px 80px;
+        padding-right: 60px;
+        overflow: hidden;
+        &.no-image{
+            margin: $section-padding auto;
+            max-width: $grid-usmall;
+            padding-left: 60px;
+            .left{
+                width: auto;
+            }
+        }
+        .bg-decoration{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            fill: $boxes-border-color;
+            opacity: 0.4;
+        }
+        .left{
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            .total{
+                font-weight: 600;
+                margin-top: 20px;
+            }
+            p{
+                margin-top: 20px;
+            }
+        }
+        .right{
+            position: relative;
+            z-index: 2;
+            margin-left: auto;
+            p{
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            img{
+                border-radius: $small-border-radius;
+                box-shadow: $main-shadow;
+            }
+        }
+        .epcl-button{
+            margin-top: 30px;
+            .icon{
+                margin-right: 10px;
+            }
+        }
+    }
+    
+}
+
+/* @end */
+
+/* @group Meet the Authors */
+
+.epcl-authors{
+    padding: 0;
+    margin-top: $section-padding;
+	.item{
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+        .thumb{
+            display: block;
+            overflow: hidden;
+            border-radius: 50%;
+            width: 330px;
+            height: 330px;
+            margin: 0 auto 30px;
+            box-shadow: $large-shadow;
+        }
+		.img{
+            object-fit: cover;
+		}
+        div.social{
+            margin-top: 15px;
+            a{
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 13px;
+                margin: 0 10px 0 0;
+                svg{
+                    margin-right: 5px;
+                    margin-top: -3px;
+                    vertical-align: middle;
+                }
+                &.twitter svg{
+                    width: 12px;
+                    height: 12px;
+                }
+                &.facebook svg{
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 7px;
+                }
+            }
+        }
+        .bio{
+            padding-top: 20px;
+        }
+	}
+    #authors-page &{
+        .epcl-row{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .item{
+            .img{
+                height: 100%;
+            }
+        }
+    }
+    &.epcl-tags-archive{
+        .item{
+            text-align: left;
+            .thumb{
+                border-radius: $small-border-radius;
+                width: 100%;
+                height: 350px;
+                img{
+                    height: 100%;
+                }
+            }
+            .total{
+                font-size: 15px;
+                font-weight: 600;
+            }
+            .info{
+                padding-left: 30px;
+                padding-right: 30px;
+                color: $meta-color;
+                span{ vertical-align: middle; }
+                .epcl-button{
+                    margin-top: 20px;
+                }
+            }
+            &.small{
+                .info{
+                    font-size: 15px;
+                }
+                .total{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+/* @end */
+
+/* @group Global: Author Box */
+
+#author{
+	position: relative;
+	z-index: 1;
+    margin: $section-padding auto 0;
+    padding: 40px 80px;
+    box-sizing: border-box;
+    &.no-avatar{
+        .right{
+            margin-left: auto;
+        }
+    }
+    .left{
+        margin-right: 60px;
+        text-align: center;
+    }
+    .author-avatar{
+        display: block;
+        width: 250px;
+        height: 250px;
+        border-radius: 100%;
+        overflow: hidden;
+        box-shadow: $medium-shadow;
+        .author-image{
+            @include absolute-element;
+            margin: 0;
+            transform: none;
+        }
+    }
+    .author-name{ margin: 20px 0 3px; line-height: 1; }
+    .location{
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 400;
+        vertical-align: middle;
+        margin-left: 7px;
+        margin-top: -4px;
+        color: $black;
+        border: 1px solid $boxes-border-color;
+        padding: 5px 8px;
+        border-radius: 6px;
+        position: relative;
+        z-index: 2;
+        &:before{
+            content: '';
+            @include absolute-element;
+            z-index: -2;
+            background: $boxes-border-color;
+            opacity: 0.25;
+        }
+    }
+    .right{
+        margin-right: auto;
+    }
+    .total{
+        font-weight: 600;
+        margin-top: 20px;
+    }
+    div.info{
+        margin-top: 20px;
+        max-width: 550px;
+    }
+    .epcl-button{
+        margin-top: 30px;
+    }
+    div.social{
+        margin-top: 15px;
+        a{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 13px;
+            margin: 0 10px 0 0;
+            svg{
+                margin-right: 5px;
+                margin-top: -3px;
+                vertical-align: middle;
+            }
+            &.twitter svg{
+                width: 12px;
+                height: 12px;
+            }
+            &.facebook svg{
+                width: 15px;
+                height: 15px;
+                margin-right: 7px;
+            }
+        }
+    }
+    .bg-decoration{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 249px;
+        height: 198px;
+        z-index: -1;
+        fill: $boxes-border-color;
+        opacity: 0.4;
+    }
+    &.single-author{
+        padding-top: $medium-section-padding;
+        padding-left: 40px;
+        padding-right: 0;
+        margin: 0;
+        .title.bordered{
+            margin-bottom: 40px;
+        }
+        .right{
+            .author-name{
+                margin-top: 0;
+            }
+            .info{
+                font-size: 15px;
+            }
+        }
+        .epcl-button{
+            margin-top: 25px;
+        }
+    }
+}
+
+/* @end */

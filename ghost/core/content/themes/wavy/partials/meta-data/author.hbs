@@ -1,0 +1,8 @@
+{{#foreach authors limit="1" }}
+    <a href="{{url}}" class="author">                                        
+        {{#if profile_image}}
+            <span class="author-image cover lazy epcl-loader" data-src="{{img_url profile_image size="thumbnail"}}"></span>                       
+        {{/if}}                    
+        <span class="author-name"><span>{{t "By"}}</span> {{name}}</span>
+    </a>
+{{/foreach}}

@@ -1,0 +1,60 @@
+<!-- start: .widget-social -->
+<div class="widget widget_epcl_social grid-33 tablet-grid-50 mobile-grid-100">
+    <h3 class="widget-title title medium bordered"><span>{{t "Social Profiles" }}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h3>
+    <ul class="icons">
+        {{#if @site.facebook}}
+            <li>
+                <a href="{{facebook_url}}" class="facebook translate-effect" target="_blank" rel="nofollow noopener">
+                    <span class="icon"><svg class="icon small"><use xlink:href="#facebook-icon"></use></svg></span>
+                    <span class="name">Facebook</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#if @site.twitter}}
+            <li>
+                <a href="{{twitter_url @site.twitter}}" class="twitter translate-effect" target="_blank" rel="nofollow noopener">
+                    <span class="icon"><svg class="icon small"><use xlink:href="#twitter-icon"></use></svg></span>
+                    <span class="name">Twitter</span>
+                </a>
+            </li>
+        {{/if}}        
+        {{#if @custom.instagram_url}}
+            <li>
+                <a href="{{@custom.instagram_url}}" class="instagram translate-effect" target="_blank">
+                    <span class="icon"><svg class="icon"><use xlink:href="#instagram-icon"></use></svg></span>
+                    <span class="name">Instagram</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#if @custom.whatsapp_url}}
+            <li>
+                <a href="{{@custom.whatsapp_url}}" class="whatsapp translate-effect" target="_blank">
+                    <span class="icon"><svg class="icon"><use xlink:href="#whatsapp-icon"></use></svg></span>
+                    <span class="name">WhatsApp</span>
+                </a>
+            </li>
+        {{/if}}
+        {{#if @custom.discord_url}}
+            <li>
+                <a href="{{@custom.discord_url}}" class="discord translate-effect" target="_blank">
+                    <span class="icon"><svg class="icon"><use xlink:href="#discord-icon"></use></svg></span>
+                    <span class="name">Discord</span>
+                </a>
+            </li>
+        {{/if}}
+        <li>
+            <a href="{{@site.url}}/rss" class="rss translate-effect" target="_blank">
+                <span class="icon rss"><i class="fa fa-rss"></i></span>
+                <span class="name">RSS</span>
+            </a>
+        </li>
+        {{!-- Here you can add your own custom profiles, replace # with any link/url you want and upload your social icon into wavy/assets/images Folder --}}
+        {{!-- <li>
+            <a href="#" class="custom translate-effect" target="_blank">
+                <span class="icon custom"><img src="{{asset 'images/social-custom.svg' }}"></span>
+                <span class="name">Custom</span>
+            </a>
+        </li> --}}
+    </ul>			
+</div>
+<!-- end: .widget-social-->

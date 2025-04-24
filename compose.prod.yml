@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  ghost:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile
+      target: production
+    ports:
+      - "2368:2368"
+    environment:
+      NODE_ENV: production
+      STRIPE_SECRET_KEY: your_stripe_secret
+      STRIPE_PUBLISHABLE_KEY: your_stripe_pub
+      STRIPE_ACCOUNT_ID: your_stripe_id
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - ghost-content:/home/ghost/content
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ghost
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  redis:
+    image: redis:7
+    volumes:
+      - redis-data:/data
+
+volumes:
+  ghost-content:
+  mysql-data:
+  redis-data:

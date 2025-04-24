@@ -1,0 +1,31 @@
+{{!< default}}
+
+<main id="home" class="main grid-container">
+
+    <!-- start: .content-wrapper -->
+    <div class="content-wrapper"> 
+        {{#if @custom.home_intro_text}}
+            {{> home-blocks/intro-text}}
+        {{/if}}
+        {{#if @custom.home_posts_slider}}
+            {{> home-blocks/posts-slider}}
+        {{/if}}
+        <div class="sticky-container section np-bottom">
+            {{#match @custom.home_layout "Masonry"}}
+                <h2 class="title bordered large section-title">{{t "Latest Articles"}}<svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>
+                <div class="epcl-row">
+                    {{> home-blocks/grid-posts}}
+                </div>
+            {{else}}
+                <h2 class="title bordered large">{{t "Latest Articles"}}<svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>
+                {{> home-blocks/classic-posts}}
+            {{/match}}               
+        </div>  
+    </div>
+    <!-- end: .content-wrapper -->
+
+    {{> svg-waves}}
+
+</main>
+
+    

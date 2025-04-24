@@ -1,0 +1,107 @@
+/* @group Footer */
+
+#footer{
+    margin-top: 80px;
+    padding: 0 0 40px;
+    min-height: inherit;
+    background: $boxes-bg-color;
+    border-top: 1px solid $boxes-border-color;
+    &.no-background{
+        background: none;
+        margin-top: 20px;
+        padding: 0;
+        border: 0;
+    }
+	.widgets{	      
+        .default-sidebar{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .title.bordered{
+            margin-bottom: 35px;
+        }
+        .epcl-row{
+            display: flex;
+        }
+        .widget{
+            border: 0;
+            border-left: 1px solid $boxes-border-color;
+            background: none;
+            margin-top: 60px;
+            padding-left: 80px;
+            border-radius: 0;
+            &:first-child{
+                border-left: 0;
+                width: 50%;
+            }
+        }
+        .default-sidebar, .mobile-sidebar{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .grid-33{
+            flex-grow: 1;
+        }
+        .widget_text a{
+            font-weight: bold;
+        }
+    }
+    
+    .logo{
+        margin-bottom: 20px;
+        a{
+            display: inline-block;
+            color: $black;
+            font-size: 40px;
+            &:hover{
+                transform: translateY(-3px);
+            }
+        }
+        a i.fa{ margin-right: 5px; }
+        &.text-logo{
+            .dot{
+                vertical-align: baseline;
+                margin: 0;
+            }
+        }
+	}
+
+	#back-to-top{
+		position: fixed;
+		right: -10px;
+		bottom: 10px;
+		text-align: center;
+		z-index: 99;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        padding: 0;
+        font-size: 25px;
+        opacity: 0;
+        border-radius: 100%;
+        cursor: pointer;
+        img{ vertical-align: middle; }
+        i.fa{ margin: 0; }
+        &.visible{
+            opacity: 1;
+            right: 10px;
+            bottom: 10px;
+        }
+    }
+    .epcl-border{ margin: 0; }
+	.published{
+        text-align: center;
+        margin: 20px;
+        font-size: 15px;
+        a{
+            font-weight: 700;
+        }
+        svg.icon{
+            margin: 0 4px;
+        }        
+    }
+}
+
+
+/* @end */

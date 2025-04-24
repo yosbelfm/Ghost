@@ -1,0 +1,48 @@
+<article class="default classic-large primary-cat-4 ctag-{{primary_tag.slug}} {{^if feature_image}}no-image{{/if}}">
+     
+    <div class="post-format-image epcl-flex">
+        <div class="featured-image">    
+            {{#if feature_image}}
+                <a href="{{url}}" class="thumb epcl-loader">   
+                    {{#if @first}}
+                        <img class="fullimage cover" loading="eager" src="{{img_url feature_image size="loop_classic" }}" alt="{{t "Image of: {article_title}" article_title=title }}">
+                    {{else}}
+                        <img class="fullimage cover" loading="lazy" decoding="async" fetchpriority="low" src="{{img_url feature_image size="loop_classic" }}" alt="{{t "Image of: {article_title}" article_title=title }}">
+                    {{/if}}
+                    <span class="screen-reader-text">{{title}}</span>
+                </a>
+                {{!-- Comments and Visibility Icons --}}
+                {{> meta-data/comments-absolute }}   
+            {{/if}}
+        </div>
+
+        <div class="info"> 
+            <header>        
+                <h1 class="main-title title underline-effect"><a href="{{url}}">{{title}}</a></h1>
+                <div class="meta">  
+                    {{> meta-data/author }}                
+                    {{> meta-data/date }}                  
+                    <div class="clear"></div>
+                </div>
+            </header>
+            <div class="post-excerpt">        
+                {{#if feature_image}}            
+                    <p>{{excerpt words="20"}}...</p>   
+                {{else}}
+                    <p>{{excerpt words="55"}}...</p>   
+                {{/if}} 
+                <div class="clear"></div>              
+            </div>  
+            <footer class="bottom">
+                <div class="meta bottom epcl-flex">
+                    <a href="{{url}}" class="continue-reading epcl-button gradient-button wave-button">{{t "Read More"}} <span class="screen-reader-text">{{title}}</span></a>
+                    {{> meta-data/reading-time }}
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+</article>

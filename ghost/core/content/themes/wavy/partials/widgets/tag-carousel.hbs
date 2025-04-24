@@ -1,0 +1,23 @@
+{{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
+    <!-- start: .widget-tag-carousel -->
+    <div class="widget widget_epcl_tag_carousel grid-25 tablet-grid-50 mobile-grid-100">
+        <h3 class="widget-title title medium bordered"><span>{{t "Categories" }}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h3>
+        <div class="epcl-carousel slick-slider bottom-arrows" data-show="1">
+            {{#foreach tags visibility="public"}}
+                {{#if feature_image}}
+                    <div class="slick-slide item">
+                        <a href="{{url}}" class="thumb">
+                            <img class="cover lazy" data-src="{{img_url feature_image size="tag_carousel"}}">
+                            <span class="name title small">{{name}}</span>
+                            <span class="count">{{plural count.posts empty=(t "0 <span class='dot small'></span> Articles") singular=(t "% <span class='dot small'></span> Article") plural=(t "% <span class='dot small'></span> Articles")}}</span>
+                        </a>
+                        <div class="clear"></div>
+                    </div>
+                {{/if}}
+            {{/foreach}}                
+        </div>
+        {{!-- <br> --}}
+        {{!-- <a href="{{site_url}}/tag-archive" class="epcl-button gradient-button small wave-button">{{t "View All"}}</a>         --}}
+    </div>
+    <!-- end: .widget-tag-carousel -->
+{{/get}}

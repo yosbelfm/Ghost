@@ -1,0 +1,24 @@
+/* @group 404 Page */
+
+#page-404{
+	div.not-found{
+		text-align: center;
+        .title{
+            margin: 0 0 30px;
+        }
+		.title span{ font-size: 500%; }
+		i.fa{ font-size: 120px; margin: 0px 0px 20px; }
+        p strong, p b{
+            display: block;
+        }
+        div.buttons{ margin-top: 30px; }
+	}	
+
+    .widget{
+        background: none;
+        border: 0;
+    }
+
+}
+
+/* @end */

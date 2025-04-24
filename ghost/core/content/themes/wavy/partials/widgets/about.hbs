@@ -1,0 +1,27 @@
+{{#get "authors" limit="1" order="id asc"}}
+    <!-- start: .widget-text-->
+    <div class="widget widget_epcl_about grid-25 tablet-grid-50 mobile-grid-100">
+        <div class="widget-content">
+            <h2 class="widget-title title medium bordered"><span>{{t "About Me" }}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>
+            {{#foreach authors visibility="public"}}
+                <div class="epcl-flex">
+                    {{#if profile_image}}
+                        <div class="avatar">                            
+                            <a href="{{url}}" class="thumb"><span class="fullimage cover" style="background-image: url( {{img_url profile_image size="medium"}} );"></span> <span class="screen-reader-text">{{name}}</span></a>                            
+                        </div>
+                    {{/if}}
+                    <div class="info">
+                        <h3 class="title usmall author-name underline-effect no-margin"><a href="{{url}}">{{name}}</a></h3>
+                        {{#if location}}
+                            <p class="founder">{{location}}</p>             
+                        {{/if}}            
+                    </div>
+                </div>
+                <div class="bio">
+                    <p>{{bio}}</p>
+                </div>  
+            {{/foreach}}
+        </div>
+    </div>
+    <!-- end: .widget-text -->
+{{/get}}

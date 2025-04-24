@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    {{! Page Meta }}
+    <title>{{t "Sign In"}} - {{@site.title}}</title>
+
+    {{> head}}
+
+    {{ghost_head}}
+</head>
+<body class="epcl-fullscreen page-subscribe {{#if @site.cover_image}}cover{{/if}} {{body_class}}" {{#if @site.cover_image}}style="background: url({{@site.cover_image}}) no-repeat center center fixed;"{{/if}}>
+
+    {{> svg-icons}}
+
+    <main id="page-subscribe" class="main epcl-flex epcl-fullheight">
+
+        <header class="section underline-effect">
+            <nav>
+                <a href="{{@site.url}}" class="link-button">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path></svg>
+                    {{t "Go back to home" }}
+                </a>
+            </nav>
+        </header>
+
+        <div class="epcl-subscribe epcl-flex">
+            <div class="epcl-flex textcenter">
+                <form class="subscribe-form grid-container grid-small" data-members-form="signin" data-members-autoredirect="false">
+                    <h1 class="title ularge fw-normal">{{{t "Hey, <b>Welcome back!</b>"}}}</h1>
+                    <p>{{{t "Sign In into your <b>account</b> for full access:"}}}</p> 
+                    <div class="form-group">
+                        <input type="email" name="email" class="inputbox large" required placeholder="{{t "Enter your email address"}}" data-members-email>
+                        <button class="epcl-button submit absolute wave-button" type="submit" data-title="{{t "Send Login Link"}}">{{t "Send Link"}}<span class="loader"></span></button>
+                    </div>                  
+                    <div class="message">
+                        <p class="error-detail" data-members-error></p>
+                        <p class="success-message">{{t "Login link was sent successfully, check your email"}} <i class="fa fa-envelope-o"></i></p>
+                    </div>
+                    <br>
+                    <p class="underline-effect np-bottom">{{t "Don't have an account yet?"}} <a href="{{@site.url}}/subscribe" class="fw-bold">{{t "Sign Up"}}</a></p>                
+                </form>
+        
+            </div>
+            
+        </div>
+
+        {{> footer-fullscreen}}
+
+        {{> svg-waves}}
+
+    </main>
+
+    {{ghost_foot}}
+
+    <script type="text/javascript" src="{{asset 'dist/scripts.min.js' }}" defer></script>
+
+</body>
+</html>

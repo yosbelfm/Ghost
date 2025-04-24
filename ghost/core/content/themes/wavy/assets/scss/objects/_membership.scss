@@ -1,0 +1,502 @@
+/* @group Global: Membership */
+
+.access-icon{
+    position: absolute;
+    left: 20px;
+    top: 0;
+    z-index: 3;
+    width: 46px;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    border-radius: 0px 0px $small-border-radius $small-border-radius;
+    background: #FFDB00;
+    color: $black;
+    box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.30), 0px 13px 27px -5px rgba(50, 50, 93, 0.25);
+    svg{
+        width: 21px;
+        height: 21px;
+        vertical-align: middle;
+    }
+    &:hover{
+        color: $black;
+    }
+}
+.post-access-public{
+    .visibility-public{ display: inline-block; }
+}
+.post-access-members{
+    .visibility-members{ display: inline-block; }
+}
+.post-access-paid{
+    .visibility-paid{ display: inline-block; }
+}
+
+/* Article CTA */
+
+.subscribe-cta{
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid $border-color;
+    background: $white;
+    padding: 50px;
+    border-radius: $medium-border-radius;
+    text-align: center;
+    color: $black;
+    .title{
+        margin-bottom: 10px;
+    }
+    .button{
+        margin-top: 25px;
+    }
+    .sign-in{
+        margin-top: 25px;
+    }
+}
+
+.members-form{
+    background: $white;
+    box-shadow: $large-shadow;
+    padding: $section-padding;
+}
+
+.subscribe-form{
+    .submit{
+        i{
+            font-size: 100%;
+        }
+        svg{
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+            margin-top: -3px;
+            margin-left: 5px;
+        }
+    }
+    .error-detail, .success-message{
+        opacity: 0;
+        padding: 0;
+        height: 0;
+        @include transition;
+        i{
+            font-size: 120%;
+            margin-left: 5px;
+            color: $main-color;
+        }
+    }
+    &.success{
+        .success-message{
+            height: auto;
+            opacity: 1;
+            margin-bottom: 15px;
+            i{
+                animation: shake 1.25s linear;
+            }
+        }
+    }
+    &.error{
+        .error-detail{
+            height: auto;
+            opacity: 1;
+            margin-bottom: 15px;
+        }
+    }
+    &.loading{
+        .submit{
+            pointer-events: none;
+            opacity: 0.8;
+            i, svg{ display: none; }
+            .loader{
+                content: "";
+                display: block;
+                position: relative;
+                height: 10px;
+                width: 10px;
+                border: 2px solid $white;
+                border-radius: 100%;
+                border-right-color: transparent;
+                border-top-color: transparent;
+                animation: spin .5s infinite linear;
+                position: absolute;
+                right: 10px;
+                top: 20px;
+                z-index: 10;
+        
+            }
+        }
+    }
+}
+
+// Membership plans
+.membership-page{
+    div.left-content{ padding-right: 0; }
+    div.left-content article{
+        background: none;
+        box-shadow: none;
+    }
+    .epcl-switch{
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 10px 0px;
+        margin-bottom: $section-padding;
+        background: $white;
+        border-radius: $small-border-radius;
+        font-size: 20px;
+        box-shadow: $boxes-shadow;
+        border-left: 5px solid $white;
+        border: 1px solid $border-color;
+        button{
+            background: none;
+            text-align: center;
+            width: 50%;
+            color: #fff;
+            font-size: 16px;
+            font-family: $title-font-family;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            bottom: 5px;
+            width: 50%;
+            background: $main-gradient;
+            border-radius: $small-border-radius;
+            z-index: -1;
+            @include transition;
+        }
+        &[data-active-price="monthly"]{
+            button[data-price="yearly"]{ color: $text-color; }
+        }
+        &[data-active-price="yearly"]{
+            &:before{
+                transform: translateX(94%);
+            }
+            button[data-price="monthly"]{ color: $text-color; }
+        }
+    }
+    .epcl-plans{
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        .epcl-price, .epcl-pay-button{ display: none; }
+        &[data-active-price="monthly"]{
+            .epcl-price[data-price="monthly"]{ display: block; }
+            .epcl-price[data-price="free"]{ display: block; }
+            .epcl-pay-button[data-price="monthly"]{ display: inline-block; }
+        }
+        &[data-active-price="yearly"]{
+            .epcl-price[data-price="yearly"]{ display: block; }
+            .epcl-price[data-price="free"]{ display: block; }
+            .epcl-pay-button[data-price="yearly"]{ display: inline-block; }
+        }
+    }
+    .subscribe-plan{
+        padding: 50px;
+        text-align: center;
+        margin-bottom: 35px;
+        .free-trial{
+            position: absolute;
+            left: 50%;
+            top: -17px;
+            z-index: 3;
+            background: $white;
+            padding: 5px 15px;
+            transform: translateX(-50%);
+            background: $third-color;
+            border-radius: $small-border-radius;
+            font-size: 13px;
+        }
+        .icon{
+            svg{
+                width: 50px;
+                height: 50px;
+                fill: $main-color;
+                margin-top: -40px;
+                background: #fff;
+                border-radius: 50%;
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+        }
+        .title{
+            margin-bottom: 10px;
+        }
+        .description{ color: $titles-color; }
+        .button{
+            margin-top: 25px;
+        }
+        ul{
+            padding: 10px 0 25px;
+            margin-top: 25px;
+            border-top: 1px solid $border-color;
+        }
+        ul li{
+            text-align: left;
+            font-size: 15px;
+            position: relative;
+            z-index: 1;
+            list-style: none;
+            padding-left: 30px;
+            margin-top: 15px;
+            &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 5px;
+                width: 16px;
+                height: 16px;
+                background: $secondary-color;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z"></path></svg>') no-repeat left center;
+
+                
+
+            }
+            // &:last-child{ border: 0; }
+        }
+        .epcl-price{
+            font-weight: bold;
+            font-size: 55px;
+            margin-bottom: 15px;
+            color: $main-color;
+            span{
+                display: inline-block;
+                font-size: 30%;
+                vertical-align: baseline;
+                margin-top: -3px;
+                color: $titles-color;
+                
+            }
+        }
+        &.monthly{
+            .cost{ color: $secondary-color; }
+            .icon svg{ fill: $secondary-color; }
+        }  
+        &.yearly{
+            .cost{ color: $text-color; }
+            .icon svg{ fill: $text-color; }
+        }     
+        .button{
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+            padding: 8px 15px;
+        }     
+    }
+    .account{
+        // color: #fff;
+        margin-top: 20px;
+        .epcl-button{ margin-left: 10px; }
+    }
+}
+
+// Account page
+.account-page{
+    div.left-content article{
+        box-shadow: none;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .avatar{
+        width: 100px;
+        margin: 0 auto 25px;
+        img{
+            display: block;
+            border-radius: 50%;
+        }
+    }
+    .subscription{
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 25px;
+        max-width: 450px;
+        margin: 0 auto 25px;
+        .subscriber-detail{
+            
+            border-top: 1px solid $border-color;
+            padding: 10px;
+            text-align: left;
+            label{
+                display: inline-block;
+                margin-right: 10px;
+                min-width: 120px;
+            }
+            .edit-billing{ font-size: 11px; }
+        }
+        .description{
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .button{
+            margin-top: 15px;
+        }
+        .gh-error{
+            display: block;
+            margin-top: 10px;
+            color: $light-gray;
+        }
+    }
+}
+
+/* Subscribe section used on Footer and Subscribe page */
+
+.epcl-subscribe{
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    padding: 45px 40px;
+   min-height: auto ;
+    background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+    color: $white;
+    border-radius: $medium-border-radius;
+    margin-top: $medium-section-padding;
+    &.text-black{
+        color: $black;
+        background: none;
+        padding: 0;
+        max-width: 440px;
+        text-align: left;
+        margin-top: 40px;
+        .description{
+            margin: 0;
+        }
+    }
+    .epcl-waves{
+        height: 70% !important;
+    }
+    .title{
+        margin-bottom: 10px;
+    }
+    .description{
+        max-width: 450px;
+        margin: 0 auto;
+        font-size: 15px;
+    }
+    form{ 
+        position: relative;
+        z-index: 2;
+        .subscribe-decoration{
+            position: absolute;
+            right: 100%;
+            top: 30px;
+            margin-right: -70px;
+            z-index: -1;
+            width: 125px;
+            height: 103px;
+            background: url($assets_path+'/images/subscribe-decoration.png') no-repeat left top;
+            background-size: contain;
+        }
+        .form-group{
+            margin: 5px auto 10px;
+            position: relative;
+            max-width: 500px;             
+            .inputbox.large{
+                margin: 0;
+                padding-right: 175px;
+            }
+            .submit.absolute{
+                position: absolute;
+                right: -2px;
+                top: 0;
+                height: 100%;
+                font-size: 16px;
+                padding: 0px 35px;
+                border-radius: 0px $small-border-radius $small-border-radius 0px;
+                &:hover{
+                    transform: none;
+                }
+            }
+        }
+    }
+    .articles &{
+        margin: 0 0 80px;
+    }
+}
+
+#page-subscribe{
+    header{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        padding: 20px;
+        .epcl-button{
+            svg{
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    .epcl-subscribe{
+        background: none;
+        margin: auto 0;
+        color: $text-color;
+        .title{
+            margin-bottom: 20px;
+        }
+        .grid-container{
+            width: 70%;
+        }
+        .epcl-waves{
+            height: 25vh;
+            top: auto;
+            bottom: 0;
+        }
+        form{
+            padding: 40px 0;
+        }
+        .form-group{
+            display: block;
+            width: auto;
+            max-width: 500px;
+            margin: 25px auto;
+            input{
+                text-align: left;
+            }
+        }
+        .epcl-button{
+            margin-bottom: 25px;
+        }
+    }
+}
+
+
+// Animations
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* @end */

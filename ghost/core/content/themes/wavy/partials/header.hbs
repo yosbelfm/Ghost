@@ -1,0 +1,61 @@
+<!-- start: #header -->
+<header id="header" class="minimalist">
+
+	<div class="menu-mobile">
+        <svg class="icon ularge open"><use xlink:href="#menu-icon"></use></svg>
+        <svg class="icon ularge close"><use xlink:href="#close-icon"></use></svg>
+    </div>
+
+	<!-- start: .menu-wrapper -->
+	<div class="menu-wrapper">
+	
+		<div class="grid-container">
+            <div class="epcl-flex">
+                {{> site-logo }}
+
+                <span data-ghost-search class="epcl-search-button epcl-button gradient-button circle"><svg class="icon large"><use xlink:href="#search-icon"></use></svg></span>
+                
+                <!-- start: .main-nav -->
+                <nav class="main-nav">      
+                    {{navigation}}                    
+                </nav>
+                <!-- end: .main-nav -->
+
+                <div class="account underline-effect hide-on-mobile hide-on-tablet hide-on-desktop-sm">          
+                    {{#if @member}}
+                        <a data-members-signout class="link-button">{{t "Sign Out"}}</a>
+                        <a href="javascript:void(0)" data-portal="account" class="epcl-button gradient-button wave-button icon">
+                            <svg class="icon large" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <circle cx="12" cy="8" r="5"/>
+                                    <path d="M20 21a8 8 0 1 0-16 0m16 0a8 8 0 1 0-16 0"/>
+                                </g>
+                            </svg>
+                            {{t "My Account"}}
+                        </a>
+                                                
+                    {{else}}
+                        <a href="{{@site.url}}/signin" class="link-button epcl-login">
+                            {{t "Login"}}
+                        </a>
+                        <a href="{{@site.url}}/subscribe" class="epcl-button gradient-button icon wave-button">
+                            <svg class="icon large"><use xlink:href="#bell-icon"></use></svg>
+                            {{t "Subscribe"}}
+                        </a>                                                           
+                    {{/if}}
+                </div>
+
+                <div class="clear"></div>
+            
+            </div>		
+            
+            <div class="clear"></div>
+        </div>
+		
+	</div>
+	<!-- end: .menu-wrapper -->
+	
+	<div class="clear"></div>
+
+</header>
+<!-- end: #header -->

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+
+    {{> head}}
+    {{!-- Node JS (Windows Local mode) do not link these files automatically --}}
+    {{!-- <script defer src="/public/cards.min.js?v=eb2c0a021c"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=eb2c0a021c"> --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{#if @site.cover_image}}cover{{/if}} {{body_class}}" {{#if @site.cover_image}}style="background: url({{@site.cover_image}}) no-repeat center center fixed;"{{/if}}>
+    
+    {{> svg-icons}}
+
+    <!-- start: .mobile.main-nav -->
+    <nav class="mobile main-nav hide-on-desktop-lg">
+        {{navigation}}
+        <div class="account underline-effect">          
+            {{#if @member}}
+                <a data-members-signout class="link-button">{{t "Sign Out"}}</a>
+                <a href="javascript:void(0)" data-portal="account" class="epcl-button gradient-button wave-button icon"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 22H4V20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20V22ZM12 13C8.68629 13 6 10.3137 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 10.3137 15.3137 13 12 13Z" fill="rgba(255,255,255,1)"></path></svg>{{t "My Account"}}</a>
+                
+            {{else}}
+                <a href="{{@site.url}}/signin" class="epcl-button gradient-button icon wave-button">
+                    <svg class="icon"><use xlink:href="#login-icon"></use></svg>
+                    {{t "Login"}}
+                </a>
+                <a href="{{@site.url}}/subscribe" class="epcl-button gradient-button icon wave-button">
+                    <svg class="icon"><use xlink:href="#bell-icon"></use></svg>
+                    {{t "Subscribe"}}
+                </a>                                                           
+            {{/if}}
+        </div>
+    </nav>
+    <!-- end: .mobile.main-nav -->
+    <div class="menu-overlay hide-on-desktop-lg"></div>
+
+	<!-- start: #wrapper -->
+	<div id="wrapper">
+
+		{{> header}}
+
+        {{{body}}}
+
+		{{> footer}}        
+
+    </div>
+    <!-- end: #wrapper -->
+
+    {{ghost_foot}}
+
+    <script src="{{asset 'dist/scripts.min.js' }}" defer></script>
+    {{#match @custom.comments_engine "Disqus"}}
+        <script>
+            !function(){var e=document.createElement("script");e.async=!0,e.type="text/javascript",e.src="//"+theme_config.disqus_shortname+".disqus.com/count.js",document.getElementsByTagName("BODY")[0].appendChild(e)}();
+        </script>
+    {{/match}} 
+
+</body>
+</html>

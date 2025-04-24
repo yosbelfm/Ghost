@@ -1,0 +1,20 @@
+<div class="center left-content grid-70">
+    
+    <!-- start: .articles -->
+    <div class="articles classic">
+                
+        {{#foreach posts visibility="all" columns="3"}}
+            {{#has number="nth:4"}}
+                {{> subscribe-form}}
+            {{/has}}
+            {{> loop/classic-article}}                 
+        {{/foreach}}
+        
+    </div>
+    <!-- end: .articles -->
+    
+    {{pagination}}
+
+</div>
+
+{{> sidebar}}     

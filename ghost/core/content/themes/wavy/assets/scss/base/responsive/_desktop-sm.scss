@@ -1,0 +1,128 @@
+/* Small Desktops and Horizontal Tablets */
+
+@media screen and (min-width: 981px) and (max-width: 1200px){
+
+    .hide-on-desktop-sm{ display: none !important; }
+	body{ min-width: inherit; font-size: 14px; }
+	img{ max-width: 100%; height: auto; }
+    .grid-container{ padding-left: 40px; padding-right: 40px; }
+    .title{ font-size: 20px; }
+    div.left-content{
+        padding-right: 40px;
+    }
+
+    .widget_epcl_social .icons a{
+        height: 95px;
+    }
+
+    /* @group Header */
+
+    #header{
+        .logo{
+            .title{
+                font-size: 50px;
+            }
+        }
+    }
+
+    /* @end */
+
+    /* @group EPCL Modules */
+
+    .epcl-slider{
+        .slick-slider{
+            width: 50%;
+            .item article{
+                height: 450px;
+            }
+        }
+        .slider-index{
+            width: 50%;
+            .item .main-title{
+                font-size: 18px;
+            }
+        }
+    }
+
+    /* @end */
+
+    /* @group Single */
+
+    #single{
+        .main-article{
+            div.meta{
+                .author{
+                    display: none;
+                }
+                time{
+                    margin-left: 0;
+                }
+            }
+            padding: 0px 0px 30px;
+        }
+        &.classic{
+            .featured-image{
+                margin: 0 0 50px;
+                img{
+                    height: 400px;
+                }
+            }
+        }
+        &.classic.epcl-vertical .main-article header{
+            margin: 0;
+        }
+        &.classic.epcl-vertical .main-article .featured-image img{
+            height: 250px;
+        }
+        &.fullcover{
+            .fullcover-wrapper .featured-image img{ height: 400px; }
+        }
+    }
+
+    /* @end */
+
+    /* @group Pages */
+
+    #page div.left-content{
+        padding-left: 20px;
+    }
+
+    /* @end */
+
+    /* @group Archives */
+
+    #author{
+        .left{
+            margin-right: 30px;
+        }
+        .author-avatar{
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .epcl-authors .item{
+        width: 50%;
+    }
+
+    div.articles{
+        &.grid-posts{
+            article{
+                width: 50%;
+            }
+        }
+    }
+
+    /* @end */
+
+    /* @group Footer */
+
+    #footer{
+        .widgets{
+            padding: 0 20px;
+        }
+    }
+
+    /* @end */
+
+}

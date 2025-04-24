@@ -1,0 +1,331 @@
+
+/* Sidebar Widgets */
+
+.widget{
+    padding: 35px 40px;
+    position: relative;
+    z-index: 2;
+    border-radius: $medium-border-radius;
+    background: $boxes-bg-color;
+    border: 1px solid $boxes-border-color;
+    .widget-title{
+        margin-bottom: 25px;
+        padding-left: 0px;
+        font-weight: 800;
+        &:before{
+            left: -40px;
+            background-size: 25px 14px;
+            margin-top: -1px;
+        }
+        svg.decoration{
+            width: 24px;
+            height: 14px;
+            left: -40px;
+            // margin-top: -1px;
+        }
+        span{ background: none; }
+        .border{
+            display: none;
+        }
+    }
+    &:last-child{
+        &:after{ display: none; }
+    }
+    select{
+        font-size: 15px;
+        background: $white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUBAMAAABohZD3AAAAA3NCSVQICAjb4U/gAAAAD1BMVEX///8AAAAAAAAAAAAAAABRO2rwAAAABXRSTlMAESIzRJTdRHwAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAY0lEQVQYlVXOyRGAIBBE0QYNgIMBWJYBcDAAFvOPSYRZ5zL1Tv3xvPY6dueC4JyA27AB2IzzMIx/4hDW6Sg+p8EJfVESCpkTEpkSGpMSshg6DkmoxlHHOaFbjoTiHHR83UX/A5M3KIMZPyPWAAAAAElFTkSuQmCC') no-repeat 97% center !important;
+        background-size: 9px 6px !important;
+    }
+}
+
+// Default Text Widget
+.widget_text{
+    font-size: 15px;
+    .textwidget{
+        margin-top: -9px;
+    }
+    p{ margin-bottom: 20px; }
+    a{ font-weight: 600; }
+    p:last-of-type{ margin-bottom: 0; }
+}
+
+// Tag Cloud
+.widget_tag_cloud, .widget_epcl_tag_cloud{
+    @extend div.tags;
+    display: block;
+	a{
+        margin-bottom: 12px;
+        margin-right: 10px;
+	}
+}
+
+// Navigation Menu
+.widget_menu{
+    font-size: 14px;
+    text-align: left;
+    nav{
+        padding: 0;
+    }
+    ul{
+        li{
+            text-align: left;
+            border-top: 1px solid $boxes-border-color;
+            padding: 10px 0;
+            &:first-of-type{ border: 0; padding-top: 0; }
+        }
+    }
+}
+
+// Tag Carousel
+
+.widget_epcl_tag_carousel{
+    .slick-slider{
+        margin: 0;
+        .item{
+            padding: 5px 0 0;
+            a{
+                box-sizing: border-box;
+                padding: 0 5px;
+            }
+            img{
+                border-radius: $medium-border-radius;
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                box-shadow: $small-shadow;
+            }
+            .count, .name{
+                display: block;
+                text-align: left;
+                max-width: 185px;
+            }
+            .title{
+                margin-top: 20px;
+                margin-bottom: 3px;
+                font-size: 17px;
+                @include transition;
+            }
+            .count{
+                color: $text-color;
+                font-size: 13px;
+            }
+            a:hover{
+                .title{
+                    color: $main-color;
+                }
+            }
+        }
+    }
+    .thumb{
+        display: block;
+        width: 100%;
+        // height: 200px;
+    }
+}
+
+/* Custom Widgets */
+
+// About me
+.widget_epcl_about{
+    .avatar{
+        margin-right: 20px;
+
+        a{
+			display: block;
+			border-radius: 50%;
+            overflow: hidden;
+            width: 70px;
+            height: 70px; 
+            box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.30), 0px 13px 27px -5px rgba(50, 50, 93, 0.25);   
+		}
+		img{ display: block; }
+    }
+    .info{
+       font-size: 14px;
+        font-weight: 400;
+        line-height: 1.8;
+       p{ margin-top: 10px; }
+       .founder{
+            margin-top: 0px;
+            opacity: 0.7;
+            font-size: 13px;
+       }
+    }
+    .bio{
+        margin-top: 25px;
+        font-size: 16px;
+    }
+    .social{
+        text-align: center;
+        float: left;
+        margin-top: 20px;
+        line-height: 36px;
+        a{
+            margin-right: 17px;
+            font-size: 21px;
+            transform: none;
+            color: $main-color;
+            img, svg{
+                width: 24px;
+                height: 24px;
+                fill: $main-color;
+                vertical-align: baseline;
+            }
+            &.facebook{
+                color: $facebook-color;
+            }
+            &.twitter{
+                color: $twitter-color;
+            } 
+            &.facebook svg{
+                fill: $facebook-color;
+            }
+            &.twitter svg{
+                fill: $twitter-color;
+            } 
+        }
+    }
+    
+}
+
+// Recent Posts with image
+.widget_epcl_posts_thumbs, .widget_epcl_featured_category, .widget_epcl_related_articles{
+	.info{
+        display: flex;
+        align-items: center;
+    }
+	.item{
+        margin-bottom: 30px;
+        position: relative;
+        padding-left: 135px;
+        display: flex;
+        align-items: center;
+        min-height: 120px;
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+        &.no-thumb{
+            padding: 0 !important;
+        }
+        .thumb{ 
+            width: 120px; 
+            height: 120px;
+            overflow: inherit;
+            position: absolute;
+            left: 0;
+            top: 0px;
+            padding: 0;
+            border-radius: $small-border-radius;
+            box-shadow: $boxes-shadow;
+            .fullimage{
+                display: block;
+                border-radius: $small-border-radius;
+            }
+        }
+		time{
+            font-size: 12px;
+		}
+	}
+}
+
+// Custom: Advertise
+.widget_epcl_ads_125{
+	.epcl-banner-wrapper{
+		margin: 0 half(-$grid-gap);
+	}
+	.epcl-banner{
+		display: block;
+		float: left;
+		max-width: 50%;
+		box-sizing: border-box;
+		padding: 0 half($grid-gap) $grid-gap;
+		a > img{ display: block; max-width: 100%; height: auto; }
+	}
+}
+.epcl-banner-wrapper a:before{ display: none; }
+.widget_ep_ads_fluid .epcl-a{ overflow: hidden; }
+
+// Custom: Social Profiles
+.widget_epcl_social{
+    ul{
+        margin: 0 -1%;
+        li{
+            display: inline-block;
+            width: 30%;
+            margin: 15px 1% 0;
+            vertical-align: top;
+        }
+    }
+	.icons a{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        height: 97px;
+        border-radius: $small-border-radius;
+        padding: 15px;
+        color: $titles-color;
+        font-family: $title-font-family;
+        font-size: 13px;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+        border: 1px solid $boxes-border-color;
+        &.twitter{
+            svg.small{ width: 18px; }
+        }
+        &:before{
+            content: '';
+            @include absolute-element;
+            background: $boxes-border-color;
+            opacity: 0.25;
+            z-index: -2;
+        }
+        span.icon{
+            display: block;
+            text-align: center;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            font-size: 25px;
+            margin: 0 auto;
+            &.facebook{ color: $facebook-color; }
+            &.twitter{ color: $twitter-color; }
+            &.instagram{ color: $instagram-bg-color; }
+            &.rss{ color: $rss-bg-color; }
+            img{
+                width: 28px;
+                height: 28px;
+                vertical-align: middle;
+            }
+        }
+        .name{
+            display: block;
+            margin-top: 3px;
+            white-space: nowrap;
+            width: 100%;
+        }
+        &:hover{
+
+        }
+        svg{
+            width: 25px;
+            height: 25px;
+            fill: $white;
+            vertical-align: middle;
+            &.small{
+                width: 22px;
+            }
+        }
+		p{ display: none; padding-top: 7px; letter-spacing: 0.5px; }
+		p span{
+			display: block;
+			font-size: 12px;
+			font-weight: 400;
+            margin-top: -1px;
+            font-family: $font-family;
+		}
+	}
+}
+
+/* @end */

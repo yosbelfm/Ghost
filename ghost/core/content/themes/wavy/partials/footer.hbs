@@ -1,0 +1,56 @@
+<!-- start: #footer -->
+<footer id="footer" class="epcl-gradient">
+
+	<div class="widgets grid-container grid-large">
+        {{!-- Desktop Footer --}}
+        <div class="epcl-row hide-on-mobile hide-on-tablet">
+
+            {{> widgets/text-footer }}
+
+            {{> widgets/secondary-nav }}
+
+            {{#get "posts" limit="2" include="tags" as |recent-article| }}
+                {{#if recent-article}}
+                    <!-- start: .recent-articles -->
+                    <div class="widget widget_epcl_posts_thumbs grid-33 tablet-grid-50 mobile-grid-100">
+                        <h3 class="widget-title title medium bordered"><span>{{t "Latest Articles" }}</span><svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h3>
+                        {{#foreach recent-article visibility="all"}}
+                            {{> widgets/loop-article }}
+                        {{/foreach}}
+                    </div>
+                    <!-- end: .recent-articles -->
+                {{/if}}
+            {{/get}}
+
+            <div class="clear"></div>
+        </div>
+
+        {{!-- Mobile Only Footer --}}
+        <div class="mobile-footer hide-on-desktop">
+            {{> widgets/text-footer }}
+        </div>
+
+	</div>
+
+
+    <div class="clear"></div>
+
+    <span id="back-to-top" class="epcl-button gradient-button wave-button">
+        <svg class="icon large" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 5l6 6m-6-6l-6 6m6-6v14"/>
+        </svg>
+    </span>
+
+    <svg class="epcl-waves epcl-wave-color" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="epcl-parallax">
+            <use xlink:href="#gentle-wave" x="48" y="2" fill-opacity="0.05" />
+            <use xlink:href="#gentle-wave" x="48" y="4" fill-opacity="0.05" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill-opacity="0.05" />
+        </g>
+    </svg>
+
+</footer>
+<!-- end: #footer -->

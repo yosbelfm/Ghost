@@ -1,0 +1,20 @@
+{{!< default}}
+
+<main id="home" class="main grid-container">
+    
+    <!-- start: .content-wrapper -->
+    <div class="content-wrapper">  
+        {{> home-blocks/intro-text}}
+        {{> home-blocks/posts-slider}}
+        <div class="sticky-container section np-bottom">
+            <h2 class="title bordered large">{{t "Latest Articles"}}<svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>
+            <div class="epcl-row">
+                {{> home-blocks/grid-posts}}  
+            </div>                      
+        </div>  
+    </div>
+    <!-- end: .content-wrapper -->
+    
+    {{> svg-waves}}
+
+</main>

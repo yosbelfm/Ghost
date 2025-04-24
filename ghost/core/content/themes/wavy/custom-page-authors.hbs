@@ -1,0 +1,63 @@
+{{!< default}}
+
+{{#post}}
+
+<!-- start: #authors-page -->
+<main id="authors-page" class="main grid-container">
+
+    <!-- start: .intro-text -->
+        <div class="intro-text text textcenter section np-bottom grid-container grid-medium">
+        <h1 class="title ularge">{{title}}</h1>
+        {{content}}
+    </div>
+    <!-- end: .intro-text -->
+    
+    {{#get "authors" limit="20" include="count.posts" order="count.posts desc" as |meet-authors| }}
+        <div class="clear"></div>
+        <section class="epcl-authors section grid-container np-tablet" id="epcl-authors">
+            <h2 class="title bordered hide-on-mobile">{{t "Popular Authors"}}<svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>            
+            <div class="epcl-row">       
+                {{#foreach meet-authors visibility="all"}}
+                    {{#if profile_image}}
+                        <div class="item grid-33 tablet-grid-50">
+                            <a href="{{url}}" class="thumb epcl-loader translate-effect">                                        
+                                <img class="lazy fullwidth img" data-src="{{img_url profile_image size="loop_classic"}}">
+                            </a>
+                            <h4 class="title medium underline-effect no-margin"><a href="{{url}}">{{name}}</a></h4>
+                            <div class="social">                        
+                                {{#if twitter}}
+                                    <a href="{{twitter_url}}" class="twitter tooltip" data-title="{{t 'Follow me on Twitter' }}" target="_blank">
+                                        <svg class="icon"><use xlink:href="#twitter-icon"></use></svg>
+                                        {{t "Twitter"}}
+                                    </a>
+                                {{/if}}
+                                {{#if facebook}}
+                                    <a href="{{facebook_url}}" class="facebook tooltip" data-title="{{t 'Follow me on Facebook' }}" target="_blank">
+                                        <svg class="icon"><use xlink:href="#facebook-icon"></use></svg>
+                                        {{t "Facebook"}}
+                                    </a>
+                                {{/if}}
+                                {{#if website}}
+                                    <a href="{{website}}" class="website tooltip" data-title="{{t 'Website' }}: {{website}}" target="_blank">
+                                        <svg class="icon main-color"><use xlink:href="#website-icon"></use></svg>
+                                        {{t "Website"}}
+                                    </a>
+                                {{/if}}
+                            </div>
+                            <div class="bio">
+                                {{bio}}
+                            </div>
+                        </div>
+                    {{/if}} 
+                {{/foreach}}                        
+            </div>
+            <div class="clear"></div>
+        </section>
+    {{/get}}
+
+    {{> svg-waves}}
+    
+</main>
+<!-- end: #authors-page -->
+
+{{/post}}

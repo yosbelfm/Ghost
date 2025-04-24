@@ -1,0 +1,18 @@
+<div class="center">
+    
+    <!-- start: .articles -->
+    <div class="articles grid-posts">
+                
+        {{#foreach posts visibility="all" columns="3"}}
+            {{!-- {{#has number="nth:4"}}
+                {{> subscribe-form}}
+            {{/has}} --}}
+            {{> loop/grid-article}}                 
+        {{/foreach}}
+        
+    </div>
+    <!-- end: .articles -->
+    
+    {{pagination}}
+
+</div>

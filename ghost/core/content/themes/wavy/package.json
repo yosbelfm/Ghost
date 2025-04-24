@@ -1,0 +1,170 @@
+{
+	"name": "wavy",
+	"version": "1.3.0",
+	"demo": "https://ghost.estudiopatagon.com/wavy",
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+	"author": {
+		"name": "Estudio Patagon",
+        "email": "admin@estudiopatagon.com",
+        "url": "https://estudiopatagon.com"
+	},
+	"gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Magazine"
+        ]
+    },
+	"config": {
+        "posts_per_page": 6,
+        "image_sizes": {
+            "thumbnail": {
+                "width": 120,
+                "height": 120
+            },
+            "medium": {
+                "width": 300,
+                "height": 300
+            },
+            "tag_carousel": {
+                "width": 630,
+                "height": 400
+            },
+            "loop_classic": {
+                "width": 660,
+                "height": 660
+            },
+            "loop_grid": {
+                "width": 450,
+                "height": 450
+            },
+            "classic": {
+                "width": 1075,
+                "height": 650
+            },
+            "fullcover": {
+                "width": 1700,
+                "height": 700
+            }
+        },
+        "card_assets": true,
+        "custom": {
+            "display_waves_background": {
+                "type": "boolean",
+                "default": true,
+                "description": "Display the waves effect on all pages"
+            },
+            "wave_color": {
+                "type": "color",
+                "default": "#fc6668",
+                "description": "Default: #fc6668"
+            },
+            "gradient_start_color": {
+                "type": "color",
+                "default": "#fc6668",
+                "description": "Default: #fc6668"
+            },
+            "gradient_end_color": {
+                "type": "color",
+                "default": "#E10489",
+                "description": "Default: #e10489"
+            },
+            "background_color": {
+                "type": "color",
+                "default": "#ffffff",
+                "description": "Default: #ffffff"
+            },
+            "boxes_background_color": {
+                "type": "color",
+                "default": "#fff9f3",
+                "description": "Default: #fff9f3"
+            },
+            "boxes_border_color": {
+                "type": "color",
+                "default": "#ffe7d2",
+                "description": "Default: #ffe7d2, used on borders and some decorations"
+            },
+            "sidebar_about_me_widget": {
+                "type": "boolean",
+                "default": true
+            },
+            "sidebar_social_feed_widgets": {
+                "type": "boolean",
+                "default": false
+            },
+            "home_intro_text": {
+                "type": "boolean",
+                "default": false,
+                "group": "homepage",
+                "description": "Note: You can edit the text on wavy/partials/home-blocks/intro-text.hbs"
+            },
+            "home_posts_slider": {
+                "type": "boolean",
+                "default": true,
+                "group": "homepage",
+                "description": "Display a slider with the featured posts on the homepage"
+            },
+            "home_layout": {
+                "type": "select",
+                "options": [
+                    "Classic",
+                    "Masonry"
+                ],
+                "default": "Classic",
+                "group": "homepage",
+                "description": "The layout of the post feed on the homepage, tag, and author pages"
+            },
+            "archives_layout": {
+                "type": "select",
+                "options": [
+                    "Classic",
+                    "Masonry"
+                ],
+                "default": "Classic",
+                "description": "Layout for the tag and author pages"
+            },
+            "comments_engine": {
+                "type": "select",
+                "options": [
+                    "Native",
+                    "Disqus"
+                ],
+                "default": "Native",
+                "group": "post"
+            },
+            "disqus_shortname": {
+                "type": "text",
+                "default": "ghostexample",
+                "group": "post",
+                "description": "Your Disqus shortname"
+            },
+            "move_subscribe_button_to_left": {
+                "type": "boolean",
+                "default": true,
+                "description": "Move subscribe button to the left, this prevent layout issues with back to top button."
+            },
+            "instagram_url": {
+                "type": "text",
+                "default": "",
+                "description": "eg. https://www.instagram.com/estudiopatagon/"
+            },
+            "whatsapp_url": {
+                "type": "text",
+                "default": "",
+                "description": "eg. https://wa.me/5492996155777"
+            },
+            "discord_url": {
+                "type": "text",
+                "default": "",
+                "description": "eg. https://discord.gg/estudiopatagon"
+            }
+        }
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ]
+}

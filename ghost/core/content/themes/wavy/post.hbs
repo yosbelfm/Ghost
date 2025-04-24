@@ -1,0 +1,38 @@
+{{!< default-post}}
+
+{{! NOTE: If you want to edit post sections/modules go to default-post.hbs
+which contains all sections applied for Default/Classic/Fullcover articles }}
+
+{{!-- If no featured image, it will use the classic style instead --}}
+
+{{#post}}
+
+    {{!-- By default is used Classic Style (horizontal image) --}}
+    {{#contentFor "main-class"}}classic{{/contentFor}}    
+
+    {{#contentFor "bottom-image"}}
+        {{#if feature_image}}
+            <div class="featured-image">
+                <img class="fullwidth" src="{{img_url feature_image size="classic"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+                {{#if feature_image_caption}}
+                    <p class="caption textcenter border-effect"><small>{{feature_image_caption}}</small></p>
+                {{/if}}
+            </div>
+        {{/if}}
+        <div class="info">    
+            <h1 class="main-title title ularge">{{title}}</h1>
+            <!-- start: .meta -->
+            <div class="meta epcl-flex  ">
+                {{> meta-data/author }}
+                {{> meta-data/date }}
+                {{> meta-data/reading-time }}
+            </div>
+            <!-- end: .meta -->             
+        </div>
+    {{/contentFor}}
+
+    {{#contentFor "sidebar"}}
+        {{> sidebar }}
+    {{/contentFor}}
+
+{{/post}}

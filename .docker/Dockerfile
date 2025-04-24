@@ -131,3 +131,21 @@ EXPOSE 7174
 
 ## Start the dev server
 CMD ["yarn", "dev"]
+# ========== Production Stage ==========
+FROM base AS production
+ARG WORKDIR=/home/ghost
+WORKDIR $WORKDIR
+
+# Copy only needed files
+COPY --from=development /home/ghost /home/ghost
+RUN npm install -g pm2
+# Install only production deps
+RUN yarn install --production --frozen-lockfile --prefer-offline
+
+# Expose only Ghost port
+EXPOSE 2368
+
+# Start the app
+CMD ["pm2-runtime", "start", "/home/ghost/core/index.js", "--name", "ghost"]
+
+

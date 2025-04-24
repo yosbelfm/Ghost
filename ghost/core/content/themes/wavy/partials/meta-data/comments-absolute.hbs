@@ -1,0 +1,23 @@
+<div class="meta absolute hide-on-mobile hide-on-tablet">    
+    {{#match @custom.comments_engine "Native"}}
+        <a href="{{url}}#comments" class="comments icon mobile tooltip" data-title="{{t "Go to comments"}}"><svg class="icon large"><use xlink:href="#comments-icon"></use></svg> <span class="comment-count">{{comment_count plural="% Comments" singular="Comment" empty="0 Comments" autowrap="false"}}</span></a>   
+    {{else}}
+        <a href="{{url}}#comments" class="comments icon mobile tooltip" data-title="{{t "Go to comments"}}"><svg class="icon large"><use xlink:href="#comments-icon"></use></svg> <span class="disqus-comment-count" data-disqus-url="{{@site.url}}{{url}}" data-disqus-identifier="{{comment_id}}">0</span></a>  
+    {{/match}}  
+</div>
+
+{{#has visibility="members"}}
+    <a href="{{url}}" class="access-icon visibility-members meta-info tooltip" data-title="{{t "Members Article"}}" aria-label="{{t "Members Article"}}">
+        <svg><use xlink:href="#locked"></use></svg>                
+    </a>
+{{/has}}
+{{#has visibility="paid"}}
+    <a href="{{url}}" class="access-icon visibility-paid meta-info tooltip" data-title="{{t "Premium Article"}}" aria-label="{{t "Premium Article"}}">         
+        <svg><use xlink:href="#vip"></use></svg>     
+    </a>
+{{/has}}
+{{#has visibility="tiers"}}
+    <a href="{{url}}" class="access-icon visibility-paid meta-info tooltip" data-title="{{t "Premium Article"}}" aria-label="{{t "Premium Article"}}">         
+        <svg><use xlink:href="#vip"></use></svg>     
+    </a>
+{{/has}}

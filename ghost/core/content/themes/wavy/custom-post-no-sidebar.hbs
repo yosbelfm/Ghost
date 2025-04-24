@@ -1,0 +1,42 @@
+{{!< default-post}}
+
+{{! If you want to edit post sections/modules go to default-post.hbs
+which contains all sections applied for Classic/Fullcover articles }}
+
+{{#post}}
+
+    {{#contentFor "main-class"}}fullcover no-sidebar{{/contentFor}}    
+
+    {{#contentFor "top-image"}}
+        {{#if feature_image}}
+            <div class="fullcover-wrapper">
+                <div class="post-format-image">
+                    
+                    <div class="featured-image">
+                        <div class="epcl-loader">
+                            <img width="1500" height="600" src="{{img_url feature_image size="fullcover"}}" class="fullwidth" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+                        </div>                       
+                    </div>
+                    {{#if feature_image_caption}}
+                        <p class="caption textcenter border-effect"><small>{{feature_image_caption}}</small></p>
+                    {{/if}}
+
+                    <div class="info grid-container grid-small">
+                        <h1 class="main-title title ularge">{{title}}</h1>
+                        <!-- start: .meta -->
+                        <div class="meta">
+                            {{> meta-data/author }}
+                            {{> meta-data/date }} 
+                            <div class="min-read meta-info">
+                                <svg><use xlink:href="#reading-icon"></use></svg> {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}
+                            </div>                 
+                            <div class="clear"></div>
+                        </div>
+                        <!-- end: .meta --> 
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{/contentFor}}    
+
+{{/post}}

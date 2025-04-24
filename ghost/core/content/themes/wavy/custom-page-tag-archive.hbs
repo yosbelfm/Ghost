@@ -1,0 +1,84 @@
+{{!< default}}
+
+{{#post}}
+
+<!-- start: #tags-archive -->
+<main id="tags-archive" class="main grid-container">
+
+    <!-- start: .intro-text -->
+        <div class="intro-text text textcenter section np-bottom grid-container grid-medium">
+        <h1 class="title ularge">{{title}}</h1>
+        {{content}}
+    </div>
+    <!-- end: .intro-text -->
+    
+    {{#get "tags" limit="20" include="count.posts" order="count.posts desc" as |tag-archive| }}
+        <div class="clear"></div>
+        <section class="epcl-authors epcl-tags-archive section grid-container np-tablet np-mobile np-bottom" id="epcl-popular-tags">
+            <h2 class="title bordered hide-on-mobile">{{t "Most Popular Tags"}}<svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>            
+            <div class="epcl-row">       
+                {{#foreach tag-archive visibility="public" from="0" to="2"}}
+                
+                        <div class="item grid-50 tablet-grid-50">
+                            {{#if feature_image}}
+                                <a href="{{url}}" class="thumb epcl-loader translate-effect">                                        
+                                    <img class="lazy fullwidth img" data-src="{{img_url feature_image  size="loop_classic"}}">
+                                </a>
+                            {{/if}}
+                            <div class="info">
+                                <h4 class="title underline-effect no-margin">
+                                    <a href="{{url}}">{{name}}</a>
+                                    <span class="dot small"></span>
+                                    <span class="total">{{plural count.posts empty=(t "0 Articles") singular=(t "1 Article") plural=(t "% Articles")}}</span>
+                                </h4>
+                                <div class="bio">
+                                    {{description }}
+                                </div>
+                                <a href="{{url}}" class="epcl-button gradient-button small wave-button">{{t "Explore"}}</a> 
+                            </div>
+                        </div>
+                
+                {{/foreach}}                        
+            </div>
+            <div class="clear"></div>
+        </section>
+        
+        <div class="clear"></div>
+
+        <section class="epcl-authors epcl-tags-archive section grid-container np-tablet np-mobile" id="epcl-all-tags">
+            <h2 class="title bordered">{{t "All Categories"}}<svg class="decoration"><use xlink:href="#title-decoration"></use></svg></h2>            
+            <div class="epcl-row">       
+                {{#foreach tag-archive visibility="public" from="3"}}
+                    <div class="item small grid-33 tablet-grid-50">
+                        {{#if feature_image}}
+                            <a href="{{url}}" class="thumb epcl-loader translate-effect">                                        
+                                <img class="lazy fullwidth img" data-src="{{img_url feature_image  size="loop_classic"}}">
+                            </a>
+                        {{/if}}
+                        <div class="info">
+                            <h4 class="title medium underline-effect no-margin">
+                                <a href="{{url}}">{{name}}</a>
+                                <span class="dot small"></span>
+                                <span class="total">{{plural count.posts empty=(t "0 Articles") singular=(t "1 Article") plural=(t "% Articles")}}</span>
+                            </h4>
+                            <div class="clear"></div>
+                            {{#if description}}
+                                <div class="bio">
+                                    {{description}}
+                                </div>
+                            {{/if}}
+                            <a href="{{url}}" class="epcl-button gradient-button small wave-button">{{t "Explore"}}</a>
+                        </div> 
+                    </div>                
+                {{/foreach}}                        
+            </div>
+            <div class="clear"></div>
+        </section>
+    {{/get}}
+
+    {{> svg-waves}}
+    
+</main>
+<!-- end: #tags-archive -->
+
+{{/post}}

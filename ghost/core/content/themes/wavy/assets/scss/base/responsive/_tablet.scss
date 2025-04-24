@@ -1,0 +1,207 @@
+@media screen and (min-width: 768px) and (max-width: 990px){
+
+    body{ font-size: 14px; }
+    div.left-content{ padding-right: 0px; }
+    .classic-sidebar div.left-content{ padding-left: 20px; }
+	.grid-container{ padding-left: 40px; padding-right: 40px; }
+	.np-tablet{ padding-left: 0; padding-right: 0; }
+    .nofloat-tablet{ float: none !important; }
+    .no-sidebar:not(#single){ display: none !important; }
+
+    .medium-section{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .widget{ margin-bottom: 30px; }
+    aside{
+        .default-sidebar, .mobile-sidebar{
+            display: flex;
+            flex-flow: row wrap;
+        }
+    }
+    aside .widget{
+        width: 50%;
+        float: left;
+        border: 0;
+        padding: 0 30px;
+        flex-grow: 1;
+        box-sizing: border-box;
+        &.widget_search{
+            background: none;
+        }
+    }
+    #sidebar {      
+        float: none;
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 0 !important;         
+        .sidebar-wrapper{
+            margin: 25px 0 0;
+        }
+    }
+
+    // #single.fullcover .featured-image .info{
+    //     max-width: 60%;
+    // }
+
+    #header{
+        .logo{
+            a{
+                font-size: 42px;
+            }
+            .title{
+                font-size: 50px;
+            }
+        }
+    }
+
+    /* @group Global: Home Modules */
+
+    .epcl-slider{
+        padding-top: 40px;
+        padding-bottom: 0;
+        .grid-container{
+            display: block;
+            border-radius: $medium-border-radius;
+            // padding-bottom: 20px;
+        }
+        .item{
+            display: none;
+            .toggle{
+                height: auto !important;
+            }
+            img{
+                border-bottom-left-radius: 0 !important;
+                border-bottom-right-radius: 0 !important;
+            }
+            &.active{
+                display: block;
+            }
+        }
+        .slick-slider{
+            width: 100%;
+            margin: 0 !important;
+            .item article{
+                height: 400px;
+                .meta{
+                    display: none;
+                }
+            }
+        }
+        .slider-index{
+            width: auto;
+            margin-top: 0px;    
+            .border{
+                display: none !important;
+            }        
+        }
+    }
+
+    /* @end */
+
+    /* @group Global Articles List */
+
+    div.meta{
+        font-size: 13px;
+        .author .author-image{ display: none; }
+    }
+
+    div.articles.grid-posts{
+        article{
+            .main-title{
+                font-size: 18px;
+            }
+        }
+    }
+
+    /* @end */
+
+    /* @group Archives */
+
+    #archives .tag-description{
+        padding: 30px;
+        .bg-decoration{
+            width: 250px;
+            height: 200px;
+        }
+    }
+    #author{
+        padding: 30px;
+        .author-avatar{
+            width: 175px;
+            height: 175px;
+        }
+        &.single-author{
+            padding-top: 60px;
+        }
+    }
+
+    /* @end */
+
+    /* @group Single */
+
+    #single{
+        .main-article{
+            padding: 0 0px 40px;
+        }
+        &.classic{
+            .featured-image{
+                margin: 0 0px 40px;
+                img{
+                    height: 400px;
+                }
+            }
+        }
+        &.classic.epcl-vertical{
+            .main-article .info{
+                padding-left: 30px;
+            }
+            .main-article header{
+                margin: 0;
+            }
+        }
+        &.fullcover{
+            .fullcover-wrapper .featured-image img{
+                height: 350px;
+            }
+        }
+    }
+
+    /* @end */
+
+    /* @group Membership */
+
+    .membership-page .epcl-plan{ padding-left: 10px; padding-right: 10px; }
+    .membership-page .subscribe-plan{
+        padding: 25px 20px;
+    }
+    .epcl-subscribe{
+        margin-top: 60px;
+    }
+
+    /* @end */
+
+    /* @group Footer */
+
+    #footer{
+        .widgets{
+            padding: 0 30px;
+            .epcl-row{
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .widget{
+                padding-bottom: 25px;
+                width: 50%;
+                margin: 0 0 40px;
+            }
+        }
+        .epcl-subscribe{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    /* @end */
+
+}

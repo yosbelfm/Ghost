@@ -1,0 +1,56 @@
+{{#get "posts" limit="3" filter="featured:true" include="authors" as |posts-slider| }}
+    <section class="epcl-slider" data-aos="fade" id="epcl-slider">
+
+        <div class="grid-container epcl-flex">
+            <!-- start: .slick-slider -->
+            <div class="slick-slider grid-60 grid-parent np-mobile" data-show="1" data-rtl="false">       
+                {{#foreach posts-slider visibility="all"}}
+                    {{#if feature_image}}
+                        <div class="item slick-slide">
+                            <article>
+                                <a href="{{url}}" class="thumb epcl-loader">                                        
+                                    <img class="lazy fullwidth img" data-src="{{img_url feature_image size="classic"}}">                  
+                                </a>
+                                <div class="info">
+                                    <!-- start: .meta -->
+                                    <div class="meta epcl-flex">
+                                        {{> meta-data/author }}
+                                        {{> meta-data/reading-time }}     
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!-- end: .meta -->    
+                                </div>
+                            </article>
+                        </div>
+                    {{/if}} 
+                {{/foreach}}                        
+            </div>
+            <!-- end: .slick-slider -->
+            <!-- start: .slider-index -->
+            <div class="grid-40 slider-index">
+                {{#foreach posts-slider visibility="all"}}
+                    {{#if feature_image}}
+                        <article class="item" data-index="{{@index}}">
+                            <span class="count">{{@number}}</span>
+                            <h2 class="main-title title medium underline-effect"><a href="{{url}}">{{title}}</a></h2>
+                            <div class="toggle">
+                                <p>{{excerpt words="17"}}...</p>
+                                <div class="meta">
+                                    {{> meta-data/author }}
+                                    <div class="epcl-inline hide-on-desktop-sm">
+                                        {{> meta-data/date }}  
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{url}}" class="full-link"><span class="screen-reader-text">{{title}}</span></a>
+                        </article>       
+                        <div class="border"></div>                     
+                    {{/if}} 
+                {{/foreach}}     
+            </div>
+            <!-- end: .slider-index -->
+            <div class="clear"></div>       
+        </div>
+
+    </section>
+{{/get}}

@@ -1,0 +1,32 @@
+{{#if isSecondary}}
+    <nav class="secondary-nav grid-container grid-small textcenter">
+        <ul class="menu">
+            {{#foreach navigation visibility="all"}}
+                <li class="nav-{{slug}}{{#if current}} current-menu-item{{/if}}"><span class="sep"></span><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{/foreach}}
+        </ul>
+    </nav>
+{{else}}
+    <ul class="menu underline-effect">
+        {{#foreach navigation visibility="all" to="4"}}
+            <li class=" nav-{{slug}}{{#if current}} current-menu-item{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}    
+            
+        {{#foreach navigation visibility="all" from="5" }}
+            {{#if @first}}
+            <li class="nav-more menu-item-has-children">
+                <span class="link">{{t "More"}}</span>
+                <ul class="sub-menu">
+            {{/if}}
+                    <li class="{{#if current}} current-menu-item{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{#if @last}}
+                </ul>
+            </li>
+            {{/if}}
+        {{/foreach}}
+
+        <li class="search-menu-item hide-on-mobile hide-on-tablet hide-on-desktop-sm"><span class="link" data-ghost-search><svg class="icon black large"><use xlink:href="#search-icon"></use></svg> {{t "Search"}}</span></li> 
+        
+    </ul>
+{{/if}}
+
