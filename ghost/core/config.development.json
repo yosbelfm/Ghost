@@ -1,3 +1,27 @@
 {
-    "enableDeveloperExperiments": true
+    "enableDeveloperExperiments": false,
+    "url": "http://localhost:2368",
+    "database": {
+        "client": "mysql",
+        "connection": {
+            "host": "127.0.0.1",
+            "port": 3306,
+            "user": "root",
+            "password": "Viltrudis",
+            "database": "ghost-violeta"
+        }
+    },
+    "mail": {
+        "from": "hello@peptalk.ie",
+        "transport": "SMTP",
+        "options": {
+            "service": "SES",
+            "host": "email-smtp.eu-west-1.amazonaws.com",
+            "port": 465,
+            "auth": {
+                "user": "AKIA3FRYJM2HROL7K5NR",
+                "pass": "BGSjgzA8YuNu3Y2uTMY/i2d6wHH7IeALzv4O/PuVvJmF"
+            }
+        }
+    }
 }
